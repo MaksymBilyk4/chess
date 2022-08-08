@@ -32,3 +32,9 @@
 .white{
     background-color: #eed4ac;
 }
+
+.cell img {
+    width: 48px;
+    height: 48px;
+    position: relative;
+}
