@@ -1,2 +1,5 @@
 # chess
-chess game on type script
+chess game:
+ - TypeScript
+ - React.js
+ - OOP
