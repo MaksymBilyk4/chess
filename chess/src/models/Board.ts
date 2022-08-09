@@ -24,6 +24,22 @@ export class Board {
         }
     }
 
+    public highlightCells(selectedCell: Cell | null) {
+        for (let i = 0; i < this.cells.length; i++) {
+            const row = this.cells[i];
+            for (let j = 0; j < row.length; j++) {
+                const target = row[j];
+                target.available = !!selectedCell?.figure?.canMove(target);
+            }
+        }
+    }
+
+    public getCopyBoard(): Board {
+        const newBoard = new Board();
+        newBoard.cells = this.cells;
+        return newBoard;
+    }
+
     public getCell(x: number, y: number) {
         return this.cells[y][x];
     }
@@ -49,7 +65,7 @@ export class Board {
         new Bishop(Colors.BLACK, this.getCell(2, 0));
         new Bishop(Colors.BLACK, this.getCell(5, 0));
         new Bishop(Colors.WHITE, this.getCell(2, 7));
-        new Bishop(Colors.WHITE, this.getCell(2, 7));
+        new Bishop(Colors.WHITE, this.getCell(5, 7));
     }
 
     private addRooks() {
